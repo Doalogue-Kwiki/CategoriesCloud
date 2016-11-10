@@ -6,13 +6,27 @@
  */
 
 ( function ( mw, $ ) {
-
+	
+	function loadCategoriesCloud(categoriesSizeList) {
+		
+		WordCloud(document.getElementById('categoriesCloudCanvas'), { 
+			list: categoriesSizeList,
+			gridSize: 18,
+			weightFactor: 3,
+			color: 'random-dark',
+			hover: window.drawBox,
+			click: function(item) {
+				alert(item[0] + ': ' + item[1]);
+			}			
+		} );
+	};
+	
 	function createCategoriesSizeList(allcategories) {
 		var categoriesSizeList = [];
 		
 		allcategories.map( function (item) {  
 			categoriesSizeList.push( [
-				item,
+				item.category,
 				item.size
 			] );
 		});
@@ -23,7 +37,6 @@
 	}
 
 	function loadApiCategoriesPageUsage() {
-		///w/api.php?action=query&format=json&list=allcategories&utf8=1&aclimit=500&acprop=size
 		api.get({
             formatversion: 2,
             action: 'query',
@@ -44,21 +57,7 @@
             }
         });
 	};
-
-	function loadCategoriesCloud(categoriesSizeList) {
-		
-		WordCloud(document.getElementById('categoriesCloudCanvas'), { 
-			list: categoriesSizeList,
-			gridSize: 18,
-			weightFactor: 3,
-			color: '#001000',
-			hover: window.drawBox,
-			click: function(item) {
-				alert(item[0] + ': ' + item[1]);
-			}			
-		} );
-	};
-
+	
 	$( function () {
         loadApiCategoriesPageUsage();
     });
