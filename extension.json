@@ -1,0 +1,49 @@
+{
+	"name": "CategoriesCloud",
+	"version": "0.1.1",
+	"author": [
+		"[http://kwiki.co.il Kwiki]",
+		"[[mw:user:HagaiAsaban|Hagai Asaban]]",
+		"[[mw:user:Yacohen|Yacohen]]"
+	],
+	"url": "doalogue-kwiki/CategoriesCloud",
+	"descriptionmsg": "categories-cloud-desc",
+	"license-name": "GPL v2",
+	"type": "other",
+	"AutoloadClasses": {
+		"CategoriesCloudHooks": "CategoriesCloud.hooks.php"
+	},
+	"Hooks": {
+		"BeforePageDisplay": [
+			"CategoriesCloudHooks::onBeforePageDisplay"
+		]
+	},
+	"MessagesDirs": {
+		"CategoriesCloud": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"ext.CategoriesCloud": {
+			"dependencies": [
+				"mediawiki.searchSuggest",
+				"mediawiki.Title"
+			],
+			"scripts": [
+				"modules/ext.CategoriesCloud.js"        
+			],
+			"styles": [
+                "modules/ext.CategoriesCloud.css"
+			],
+			"templates": {
+				"categories-cloud.mustache" : "templates/categories-cloud.mustache"
+			}
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "CategoriesCloud"
+	},
+	"SpecialPages": {},
+	"manifest_version": 1
+}
