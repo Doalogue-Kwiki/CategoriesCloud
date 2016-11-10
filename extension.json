@@ -26,10 +26,10 @@
 	"ResourceModules": {
 		"ext.CategoriesCloud": {
 			"dependencies": [
-				"mediawiki.searchSuggest",
-				"mediawiki.Title"
+				"mediawiki.api"
 			],
 			"scripts": [
+				"lib/wordcloud2.js",
 				"modules/ext.CategoriesCloud.js"        
 			],
 			"styles": [
