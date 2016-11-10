@@ -1,6 +1,6 @@
 # CategoriesCloud
 
-Advanced Search Box Extension for MediaWiki
+Categories Cloud Extension for MediaWiki
 
 ## Features
 
