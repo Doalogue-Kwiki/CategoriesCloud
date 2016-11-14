@@ -11,11 +11,17 @@
 	"license-name": "GPL v2",
 	"type": "other",
 	"AutoloadClasses": {
-		"CategoriesCloudHooks": "CategoriesCloud.hooks.php"
+        "CategoriesCloudHooks": "CategoriesCloud.hooks.php"
+	},
+	"config": {
+		"IsCloudDisplay": true,
+        "CategoriesMaxAmount": 100,
+        "CategoryLinkedMinSize": 1,
+        "CategoryCloudContainer": "#content"
 	},
 	"Hooks": {
 		"BeforePageDisplay": [
-			"CategoriesCloudHooks::onBeforePageDisplay"
+            "CategoriesCloudHooks::onBeforePageDisplay"
 		]
 	},
 	"MessagesDirs": {
@@ -29,14 +35,16 @@
 				"mediawiki.api"
 			],
 			"scripts": [
-				"lib/wordcloud2.js",
+				"lib/underscore-min.js",
+                "lib/jqcloud-1.0.4.min.js",
 				"modules/ext.CategoriesCloud.js"        
 			],
 			"styles": [
                 "modules/ext.CategoriesCloud.css"
 			],
 			"templates": {
-				"categories-cloud.mustache" : "templates/categories-cloud.mustache"
+				"categories-cloud.mustache" : "templates/categories-cloud.mustache",
+				"categories-list.mustache": "templates/categories-list.mustache"
 			}
 		}
 	},

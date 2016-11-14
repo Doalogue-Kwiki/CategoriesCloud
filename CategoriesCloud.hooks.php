@@ -8,7 +8,21 @@
 
 class CategoriesCloudHooks {
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin) {
-        $out->addModules( array( "ext.CategoriesCloud" ) );       
+
+        global  $wgIsCloudDisplay,
+                $wgCategoriesMaxAmount,
+                $wgCategoryLinkedMinSize,
+                $wgCategoryCloudContainer;
+
+		$out->addJsConfigVars( array(
+			'wgIsCloudDisplay' => $wgIsCloudDisplay,
+            'wgCategoriesMaxAmount' => $wgCategoriesMaxAmount,
+            'wgCategoryLinkedMinSize' => $wgCategoryLinkedMinSize,
+            'wgCategoryCloudContainer' => $wgCategoryCloudContainer
+		) );
+	
+		$out->addModules( array('ext.CategoriesCloud') );
+		
 		return true;
 	}
 }
